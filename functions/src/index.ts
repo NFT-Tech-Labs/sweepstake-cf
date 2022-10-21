@@ -1,5 +1,8 @@
 import * as functions from "firebase-functions";
 import axios from "axios";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const REGION = "europe-west3";
 
