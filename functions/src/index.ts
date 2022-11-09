@@ -5,6 +5,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const REGION = "europe-west3";
+const TIMEZONE = "Europe/Madrid";
 
 const runCounterSync = async () => {
   console.log(`syncCounter is running at ${Date.now()}`);
@@ -36,11 +37,12 @@ const runCreateRatings = async () => {
   );
 };
 
+// runs at 14, 17, 20 and 23 each day
 export const syncCounter = functions
     .region(REGION)
     .pubsub
-    .schedule("55 * * * *")
-    .timeZone("Europe/Madrid")
+    .schedule("0 14,17,20,23 * * *")
+    .timeZone(TIMEZONE)
     .onRun(runCounterSync);
 
 // runs at 23:30 each day
@@ -48,5 +50,5 @@ export const createRatings = functions
     .region(REGION)
     .pubsub
     .schedule("30 23 * * *")
-    .timeZone("Europe/Madrid")
+    .timeZone(TIMEZONE)
     .onRun(runCreateRatings);
