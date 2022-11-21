@@ -28,7 +28,7 @@ const runCreateRatings = async () => {
     apiKey: String(process.env.COUNTER_API_KEY),
   });
   const res = await fetch(
-      `${process.env.API_BASE_URL}/api/v1/ratings?${params}`,
+      `${process.env.API_BASE_URL}/api/v1/rankings?${params}`,
       {method: "POST"},
   );
   console.log(
