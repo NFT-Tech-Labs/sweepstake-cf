@@ -37,11 +37,11 @@ const runCreateRatings = async () => {
   );
 };
 
-// runs at 14, 17, 20 and 23 every day
+// runs at 19 and 23 every day
 export const syncCounter = functions
     .region(REGION)
     .pubsub
-    .schedule("0 14,17,20,23 * * *")
+    .schedule("0 19,23 * * *")
     .timeZone(TIMEZONE)
     .onRun(runCounterSync);
 
